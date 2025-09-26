@@ -1,0 +1,1107 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif !important;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #fffafc 0%, #fef7ff 100%);
+}
+
+/* FORCE HINDI CONTENT TO SHOW */
+[data-en] {
+  display: none !important;
+}
+
+[data-hi] {
+  display: inline !important;
+}
+
+/* Language Switcher */
+.language-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.lang-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  color: #6d1a44;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, #b83280 0%, #d63384 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(184, 50, 128, 0.3);
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(184, 50, 128, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe6f2 0%, #f3e5f5 50%, #fce4ec 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ff69b4" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="%23dda0dd" opacity="0.1"/><circle cx="40" cy="80" r="2" fill="%23ffb6c1" opacity="0.1"/></svg>');
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.main-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #b83280;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: #6d1a44;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.8);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #d63384;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6d1a44;
+  font-weight: 500;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+/* Navigation Section */
+.navigation {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #b83280;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.nav-card {
+  background: linear-gradient(135deg, #ffe4f0 0%, #f8e8ff 100%);
+  padding: 2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(184, 50, 128, 0.1);
+  border: 1px solid rgba(184, 50, 128, 0.1);
+  text-align: center;
+}
+
+.nav-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(184, 50, 128, 0.2);
+  background: linear-gradient(135deg, #ffcfe3 0%, #f0e4ff 100%);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.nav-card h3 {
+  font-size: 1.5rem;
+  color: #6d1a44;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.nav-card p {
+  color: #8e4a6b;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+/* Content Sections */
+.content-section {
+  padding: 5rem 0;
+  margin: 0;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.content-section:nth-child(even) {
+  background: linear-gradient(135deg, #fafafa 0%, #f8f9fa 100%);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #b83280;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  color: #6d1a44;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+/* Phases Grid */
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.phase-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-left: 5px solid;
+}
+
+.phase-card.menstrual { border-left-color: #e63946; }
+.phase-card.follicular { border-left-color: #ffafcc; }
+.phase-card.ovulation { border-left-color: #ffd166; }
+.phase-card.luteal { border-left-color: #9d4edd; }
+
+.phase-card h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.phase-details p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.phase-details strong {
+  color: #6d1a44;
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.product-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card h3 {
+  color: #b83280;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.product-info p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.product-info strong {
+  color: #6d1a44;
+}
+
+/* Relief Categories */
+.relief-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.relief-category {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.relief-category h3 {
+  color: #b83280;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.relief-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.relief-category li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.relief-category li::before {
+  content: '🌸';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.relief-category strong {
+  color: #6d1a44;
+}
+
+/* Warning Box */
+.warning-box {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 1px solid #ffc107;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.warning-box h3 {
+  color: #856404;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.warning-box p {
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.warning-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.warning-box li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.warning-box li::before {
+  content: '⚠️';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Back Button */
+.back-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #b83280 0%, #d63384 100%);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(184, 50, 128, 0.3);
+  margin-top: 2rem;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(184, 50, 128, 0.4);
+  background: linear-gradient(135deg, #a02970 0%, #c42a74 100%);
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #6d1a44 0%, #b83280 100%);
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: /* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap');
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif !important;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #fffafc 0%, #fef7ff 100%);
+}
+
+/* FORCE HINDI CONTENT TO SHOW */
+[data-en] {
+  display: none !important;
+}
+
+[data-hi] {
+  display: inline !important;
+}
+
+/* Language Switcher */
+.language-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.lang-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  color: #6d1a44;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.lang-btn.active {
+  background: linear-gradient(135deg, #b83280 0%, #d63384 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(184, 50, 128, 0.3);
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(184, 50, 128, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe6f2 0%, #f3e5f5 50%, #fce4ec 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ff69b4" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="%23dda0dd" opacity="0.1"/><circle cx="40" cy="80" r="2" fill="%23ffb6c1" opacity="0.1"/></svg>');
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.main-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #b83280;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: #6d1a44;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.8);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #d63384;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6d1a44;
+  font-weight: 500;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+/* Navigation Section */
+.navigation {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #b83280;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.nav-card {
+  background: linear-gradient(135deg, #ffe4f0 0%, #f8e8ff 100%);
+  padding: 2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(184, 50, 128, 0.1);
+  border: 1px solid rgba(184, 50, 128, 0.1);
+  text-align: center;
+}
+
+.nav-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(184, 50, 128, 0.2);
+  background: linear-gradient(135deg, #ffcfe3 0%, #f0e4ff 100%);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.nav-card h3 {
+  font-size: 1.5rem;
+  color: #6d1a44;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.nav-card p {
+  color: #8e4a6b;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+/* Content Sections */
+.content-section {
+  padding: 5rem 0;
+  margin: 0;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.content-section:nth-child(even) {
+  background: linear-gradient(135deg, #fafafa 0%, #f8f9fa 100%);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #b83280;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  color: #6d1a44;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+/* Phases Grid */
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.phase-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-left: 5px solid;
+}
+
+.phase-card.menstrual { border-left-color: #e63946; }
+.phase-card.follicular { border-left-color: #ffafcc; }
+.phase-card.ovulation { border-left-color: #ffd166; }
+.phase-card.luteal { border-left-color: #9d4edd; }
+
+.phase-card h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.phase-details p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.phase-details strong {
+  color: #6d1a44;
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.product-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card h3 {
+  color: #b83280;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.product-info p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.product-info strong {
+  color: #6d1a44;
+}
+
+/* Relief Categories */
+.relief-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.relief-category {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.relief-category h3 {
+  color: #b83280;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.relief-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.relief-category li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.relief-category li::before {
+  content: '🌸';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.relief-category strong {
+  color: #6d1a44;
+}
+
+/* Warning Box */
+.warning-box {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 1px solid #ffc107;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.warning-box h3 {
+  color: #856404;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.warning-box p {
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.warning-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.warning-box li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.warning-box li::before {
+  content: '⚠️';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Back Button */
+.back-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #b83280 0%, #d63384 100%);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(184, 50, 128, 0.3);
+  margin-top: 2rem;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(184, 50, 128, 0.4);
+  background: linear-gradient(135deg, #a02970 0%, #c42a74 100%);
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #6d1a44 0%, #b83280 100%);
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+    line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.footer-link {
+  color: #ffcfe3;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .phases-grid,
+  .products-grid,
+  .relief-categories {
+    grid-template-columns: 1fr;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .language-switcher {
+    top: 10px;
+    right: 10px;
+    scale: 0.9;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-card {
+    padding: 1.5rem;
+  }
+  
+  .phase-card,
+  .product-card,
+  .relief-category {
+    padding: 1.5rem;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .section-intro {
+    font-size: 1rem;
+  }
+}
+
+/* Smooth Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #b83280, #d63384);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a02970, #c42a74);
+}
+
+/* Focus States for Accessibility */
+.nav-card:focus,
+.back-btn:focus,
+.footer-link:focus {
+  outline: 3px solid #ffcfe3;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .hero,
+  .navigation,
+  .back-btn,
+  .footer,
+  .language-switcher {
+    display: none;
+  }
+  
+  .content-section {
+    page-break-inside: avoid;
+    margin: 1rem 0;
+    padding: 1rem;
+    box-shadow: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .section-header h2 {
+    color: black;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .nav-card {
+    border: 2px solid #000;
+  }
+  
+  .back-btn {
+    border: 2px solid #fff;
+  }
+  
+  .phase-card,
+  .product-card,
+  .relief-category {
+    border: 1px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Better text rendering for Hindi */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+p, li, span {
+  font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  word-spacing: 1px;
+}
+
+/* Better spacing for Devanagari script */
+.section-intro,
+.phase-details p,
+.product-info p {
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
+}
+
+/* Ensure proper text direction */
+body {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Force visibility of all content */
+* {
+  visibility: visible !important;
+}
+
+/* Override any hiding rules */
+.content-section,
+.section-header,
+.phase-card,
+.product-card,
+.relief-category {
+  display: block !important;
+  visibility: visible !important;
+}
